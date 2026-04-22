@@ -1,0 +1,980 @@
+@font-face {
+    font-family: 'Pathway Gothic' ;
+    src: url(../fuentes/Pathway_Gothic_One/PathwayGothicOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'PinyonScript' ;
+    src:url(../fuentes/Pinyon_Script/PinyonScript-Regular.ttf);
+}
+@font-face {
+    font-family:'Quicksand' ;
+    src: url(../fuentes/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Staatliches';
+    src:url(../fuentes/Staatliches/Staatliches-Regular.ttf)
+}
+  
+
+
+*{
+    margin: 0 ;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS para el modal de bienvenida */
+#modalBienvenida{
+    width: 100vw; /*coge la anchura de la ventana independientemente del tamaño*/
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    display: none; /*Cambiamos el display block por none*/
+    z-index: 6;
+}
+
+#modalBoxB{
+    width: 800px;
+    height: 500px;
+    background-color: rgba(112, 32, 26, 0.8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    text-align: center;
+    border-radius: 25px;
+    
+}
+
+#modalBoxB > h1{
+    color: white;
+    font-family: 'Pathway Gothic';
+    font-size: 5rem;
+}
+
+#modalBoxB button{
+    font-family: 'Quicksand';
+    font-size: 2rem;
+    padding: 20px 40px;
+    border-radius: 15px;
+   margin-top: 50px;
+}
+
+#modalBoxB button:hover{
+    color:white;
+    background-color:#301e05 ;
+}
+
+
+
+
+/* CSS para el modal de LightBox */
+#modalLightBox{
+    width: 100vw; /*coge la anchura de la ventana independientemente del tamaño*/
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    display: none; /*Cambiamos el display block por none*/
+    z-index: 5;
+    top:0;
+}
+
+#imageToShow {
+    width: 80vw;
+    max-width: 1000px; /* aumentamos la imagen a la pantalla */
+    max-height: 90vh; /* esto evita que se corte en pantallas pequeñas */
+    background-color: rgba(112, 32, 26, 0.8);
+    position: absolute; /* mejor que absolute para centrar en viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 25px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Esto no lo pongo porque al ser una galeria corredera (slider) queda feo el código
+.imgGrande:hover{
+    box-shadow: 0px 0px 7px 4px #77572c;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.75);
+}
+*/
+
+.imageLightBox{
+    width: 100%;
+    height: auto;
+}
+
+
+.lbButtons{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    margin-left: 200px;
+    margin-right: 200px;
+    transform: translateY(-50%);
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+}
+.lbButtons:hover {
+    background-color: #301e05;
+    border-color: black;
+    transition: background-color 0.5s;
+    transition: border-color 0.5s;
+}
+.lbbRight{
+    right: 30px;
+}
+.lbbLeft{
+    left: 30px;
+}
+.lbButtons img {
+    width: 64px;
+    height: 64px;
+    filter: brightness(0) invert(1);
+}
+.lbButtons:hover img {
+    filter: brightness(0);
+    transition: filter 0.5s;
+  }
+
+
+#logo {
+    position: absolute;
+    top: 20px;
+    left: 200px;
+    width: 186px;
+    height: 148px;
+    z-index: 10;
+}
+
+nav{
+    display: block;
+    margin-right: 200px;
+    border-radius: 50px;
+    /* Para que el menu haga scroll */
+    position: fixed;
+    top: 0px;
+    right: 200px;
+    height: 130px;
+    transition-property: top;
+    transition-duration: 0.75s;
+    z-index: 5;
+
+}
+nav .elementoMenu{
+    list-style: none;
+    float: left; /*Para colocar el texto en fila */
+    padding: 50px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    
+}
+nav .elementoMenu a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family:'Quicksand';
+    
+}
+.elementoMenu a:hover{
+    color:rgb(245, 243, 105);
+    transition-duration: 0.5s;
+}
+nav .elementoMenu:hover{
+    background-color: rgba(255, 60, 0, 0.644);
+    transition-duration: 0.5s;
+}
+
+/*Aqui está el submenú del menú */
+#submenuDos {
+    margin-top: 4%;
+    margin-left: -9%;
+    text-align: center;
+    width: auto;
+    height: 150px;
+    list-style: none;
+    position: absolute;
+    z-index: 1;
+    display: none;
+
+}
+
+.opciones{
+    width:100%;
+    height: 50px;
+    line-height: 50px;
+
+}
+
+.opciones > a {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+}
+
+.opciones > a:hover {
+    color: rgb(131, 37, 37);
+}
+
+
+    /*Para despegar el submenú*/
+.elementoMenu:hover #submenuDos {
+    background-color:hsla(49, 60%, 42%, 0.8);
+    border-radius: 10%;
+    display: block;
+}
+
+/*Aqui acaba el submenú del menú */
+
+
+/*Bienvenido al hero image */
+#encabezado {
+    
+    width: 100%;
+    height: 1000px;
+}
+.fondosHero {
+    height: 1000px;
+    width: 100%;  
+    background-position:center;
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    position: absolute;
+}
+
+#fondoHero1{
+    background-image: linear-gradient(#00000033, #00000033), url(../imagenes/HEROIMAGEREDIMENSIONADA.png); 
+    z-index: 4;
+}
+#fondoHero2{
+    background-image: linear-gradient(#00000033, #00000033), url(../imagenes/CarrouselHero/bodega2.png); 
+    z-index: 3;
+}
+#fondoHero3{
+    background-image: linear-gradient(#00000033, #00000033), url(../imagenes/CarrouselHero/bodega3.jpg); 
+    z-index: 2;
+}
+#fondoHero4{
+    background-image: linear-gradient(#00000033, #00000033), url(../imagenes/CarrouselHero/bodega4.jpg); 
+    z-index: 1;
+}
+body {
+    overflow-x: hidden;
+}
+.mainSlide{
+    animation-name: mainSlideAnim ;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.nextSlide{
+    animation-name: nextSlideAnim ;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.hiddenSlide {
+    display: none;
+}
+#heroContainer {
+    position: absolute;
+    width: 100%;
+    height: 1000px;
+    overflow: hidden; /* esto es clave */
+}
+
+/*desplaza la imagen hacia fuera */
+@keyframes mainSlideAnim {
+    0%{ margin-left: 0%; }
+    100% { margin-left: -100%; }
+}
+/* Mostrar imagenes dentro */
+@keyframes nextSlideAnim {
+    0%{ margin-left: 100%; }
+    100% { margin-left: 0%; }
+}
+
+
+#TituloEncabezado {
+    font-family: 'Pathway Gothic';
+    color: white;
+    text-shadow: 2px 2px 5px red;
+    font-size: 7rem;
+    text-align: center;
+    /* Centrar verticalmente */
+    position: relative;
+    top: 320px;
+    animation-name: fadeinTitulo;
+    animation-duration: 8s;
+    z-index: 5;
+    
+    }
+
+    #SubtituloEncabezado {
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    font-family: 'PinyonScript';
+    font-size: 3rem;
+    text-align: center;
+    position: relative;
+    top: 350px;
+    animation-name: fadeinSubtitulo;
+    animation-duration: 4s;
+    z-index: 5;
+    }
+    /* Aquí acaba el header */
+
+
+    @keyframes fadeinTitulo {
+        0% {opacity:0; right:300px;}
+        100% {opacity:1; right:0px}
+    }
+
+    @keyframes fadeinSubtitulo {
+        0% {opacity:0; top:500px;}
+        100% {opacity:1; top:350px}
+    }
+
+
+    #bodega {
+        width: 100%;
+        height: 1080px;
+        background-color: #FDE4AB;
+        /*Para quitar el desplazamiento del margen blanco de la pantalla */
+        overflow: hidden;
+    }
+
+    .titulos{
+    font-family: 'pathway gothic';
+    text-shadow: 2px 2px 5px black;
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 89px;
+    }
+    .tituloCata {
+        color: black; 
+        -webkit-text-stroke: 1px white; 
+          
+}
+    .desplazamiento { 
+        margin-top: 2%;
+    }
+
+    /*BODEGA PESTAÑAS */
+    #contenedorPestana{
+        width: 1518px;
+        height: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: cornsilk;
+        margin-top: 102px;
+        overflow: hidden;
+        display: none;
+    }
+    
+    /*Para que no salga la otra pestaña en el inicio de bodega*/
+    .contenedorPestana{
+        display: none;
+    }
+    #QuienesSomos {
+        display: block;
+      }
+
+
+    .negrita{
+        text-align: center;
+        font-weight: bold;
+    }
+    .colBodega {
+        font-family: 'Quicksand';
+        width: 50%;
+        height: 600px;
+       /* border-style: solid; */
+        float: left;
+    }
+
+    .colBodega > p{
+        margin-top: 90px;
+    }
+
+    .imgBotella p {
+        font-family: 'Staatliches';
+    }
+    .colBodega > p {
+        margin-right: 328px;
+       font-size: 1.5rem;
+       margin-top:65px;
+       margin-left: 20px;
+       width: 80%; /* opcional para controlar el ancho del párrafo */
+      
+        }
+
+    #galeria {   
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*margin-top: 50px;*/
+    overflow: hidden;
+    padding-top: 70px;
+    }
+
+    
+    #galeria img {
+        border-radius: 2%;
+    }
+
+    
+    .contenedorEtiquetaPestañas {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        margin-top: 64px;  
+    }
+        
+    .opcion{
+        font-family: 'Staatliches';
+        font-size: 2.5rem;
+        width: 33.33%;
+        float:left;
+        text-align: center;
+        color: white ;
+        text-shadow: 2px 2px black;
+        -webkit-text-stroke: 0.2px gray;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .pestanaActiva{
+        color: #69420a ;
+        text-decoration: underline;
+    }
+
+
+    /*FIN DE LA BODEGA PESTAÑAS */
+
+
+    #vinos {
+        width: 100%;
+        height: 1000px;
+        background-image: url(../imagenes/fondo.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .subtituloVinos {
+        font-family: 'Staatliches';
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 60px;
+        color: #CD974A ;
+        text-shadow: 2px 2px black;
+        -webkit-text-stroke: 1px black;
+    }
+
+    .subtituloCata {
+        font-family: 'Staatliches';
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 60px;
+        color: #CD974A ;
+        text-shadow: 2px 2px white;
+        -webkit-text-stroke: 1px white;
+    }
+
+   #vinosimg {
+        width: 1518px;
+        height: 760px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden; 
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+
+    .imgBotella{
+        height: 404px;
+        width: 165px;
+        margin-left: 91.5px;
+        margin-right: 91.5px;
+        overflow: hidden ;
+        
+    }
+  
+      /* Para evitar que la imagen se deforme */
+    
+    .imgBotella img{
+        margin-top: 3px;
+        margin-bottom: 1em;
+        width: 51%;
+        height: auto;
+        transition: transform 1s ease 0.5s; 
+    }
+
+    .imgBotella img:hover{
+        transform: scale(1.2,1.2);
+        
+      }
+    
+    .imgBotella:nth-child(5){
+        margin-top: -85px;
+        margin-left: 280px;
+        grid-row: 2;
+        grid-column:  1/ span 2;
+    }
+
+    .imgBotella:nth-child(6){
+        margin-top: -85px;
+        margin-left: -100px;
+        grid-row-start: 2;
+        grid-column-start: -1 / span 2;
+    }
+    .imgBotella:nth-child(7){
+        margin-top: -85px;
+        margin-left: -100px;
+        grid-row-start: 2;
+        grid-column-start: 3/ span 4;
+    }
+
+    .nombreBotella {
+        font-size: 1.5rem;
+    }
+    .abajo{
+        margin-top: 30px;
+        margin-bottom: -10px;
+    }
+
+    .titulosCata{
+        position: relative;
+        z-index: 2;
+    }
+  
+    #catadevino {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+    }
+
+     video{
+        position: absolute;
+        top:0;
+        left:0; 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 2;
+    }
+
+     #FormularioCata {
+            position: relative;
+            z-index: 2; 
+        }
+        
+    #terminosCata {
+        margin-top: 15%;
+        margin-left: 38%;
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        
+    }
+    .textoterminosCata{
+        
+        font-family: 'Quicksand';
+        margin-left: 10px;
+        font-size: 1.25rem;
+        -webkit-text-stroke: 1px #CD974A;
+        text-shadow: 2px 2px rgb(255, 255, 255);
+        color: white;
+       
+    }
+
+    #terminosCata2 { 
+        margin-left: 38%;
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+       
+    }
+    .RecibirinfoTexto {
+        font-family: 'Quicksand';
+        margin-left: 20px;
+        font-size: 1.25rem;
+        -webkit-text-stroke: 1px #CD974A;
+        text-shadow: 2px 2px rgb(255, 255, 255);
+        color: white;
+    }
+
+
+    .EmailTitulo{
+        margin-left: 35%;
+        margin-top: 52px;
+        font-size: 3rem;
+        font-family: 'Quicksand';
+        text-shadow: 2px 2px white;
+        -webkit-text-stroke: 1px white;
+        color: #CD974A ;
+    }
+
+    .EmailTitulo input{
+
+        font-size: 2rem;
+        font-family: 'Quicksand';
+        color: #301e05 ;
+        text-shadow: 0px;
+        -webkit-text-stroke: 0px;
+    }
+
+    .EmailCata{
+        margin-left: 5%;
+        margin-top: -40px;
+        width: 585px;
+        height: 60px;
+        
+    }
+
+
+            /**ANIMACIONES */
+
+    @keyframes ocultarTexto {
+        0% { opacity: 1; }   /* Al inicio el texto es visible */
+        75% {opacity: 0.5;}
+        100% { opacity: 0; } /* Al final el texto invisible */
+    }
+    
+    
+    video:focus-within + #contenedorCata {
+        animation-name: ocultarTexto;
+        animation-duration: 45s;
+    }
+    
+
+    #contacto { 
+     width: 100%;
+     height: 1000px;
+     background-image: linear-gradient(#00000081, #00000081), url(..//imagenes/5820141330307135s.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position-y: 20%;
+     overflow: hidden;
+    }
+
+    #contenedorContacto {
+        width: 1518px;
+        height: 775px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 85px;
+        overflow: hidden;
+    }
+
+    #map{
+        float:left;
+    }
+
+    #Formulario{
+        width: 50%;
+        height: 726px;
+        float: right;
+    }
+
+    input{
+        font-family: 'Quicksand';
+        margin-left: 40.75px;
+        margin-right: 40.75px ;
+        margin-bottom: 50px;
+        height: 79px;
+        width: 292px;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    textarea {
+        font-family: 'Quicksand';
+        margin-left: 40.75px;
+        margin-right: 40.75px ;
+        height: 79px;
+        width: 670px;
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 31px;
+    }
+    button{
+        font-family: 'Quicksand';
+        margin-left: 224px;
+        margin-right: 224px ;
+        height: 83px;
+        width: 277px;
+        text-align: center;
+        font-size: 1.5rem;
+        background-color: #EAC86A;
+        border-radius: 2px solid white;
+        border-color: white;
+       
+    }
+
+    #Formulario button:hover{
+        background-color: #966d38 ;
+        border-radius: 2px solid #77572c;
+        border-color: #77572c;
+        color:white;
+        transition-duration: 1s ;
+    }
+ 
+
+    #terminos {
+        margin-top: 90px;
+        margin-left: 207px;
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        
+    }
+    .textoterminos{
+        font-family: 'Quicksand';
+        margin-left: 10px;
+        font-size: 1.25rem;
+        -webkit-text-stroke: 1px #C69359;
+        text-shadow: 1px 1px black;
+        color: white;
+       
+    }
+  
+    .textoterminos a{
+         text-decoration: underline;
+         color: inherit;
+    }
+
+    
+    /* CSS para el modal de RESERVA */
+#modalReserva{
+    width: 100vw; /*coge la anchura de la ventana independientemente del tamaño*/
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top:0px;
+    display: none; /*Cambiamos el display block por none*/
+    z-index: 6;
+}
+
+#modalBoxR{
+    width: 800px;
+    height: 350px;
+    background-color: #fde4abbe;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    text-align: center;
+    border-radius: 25px;
+    
+}
+
+#modalBoxR > h1{
+    color: white;
+    font-family: 'Pathway Gothic';
+    font-size: 3rem;
+}
+
+#modalBoxR > p{
+    margin-top: 20px;
+    color: white;
+    font-family: 'Quicksand';
+    font-size: 1.5rem;
+    margin-bottom: -30px;
+}
+
+#modalBoxR button{
+    
+    font-family: 'Quicksand';
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+
+#modalBoxR button:hover{
+    color:white;
+    background-color:#301e05 ;
+}
+
+
+ 
+    #pie{
+        width: 100%;
+        height: 100px;
+        background-color: #FDE4AB;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    #RedesSociales {
+        display: flex;
+        justify-content: space-between;  
+        margin-right: 300px;
+        margin-left: 100px;
+        
+    }
+
+    
+    #RedesSociales img {
+        height: 64px;
+        width: 64px; 
+    }
+
+     .div-icono{
+       
+        width: 100%;
+        height: auto;
+        margin-inline: 45px;
+    }
+    
+   .div-icono img:hover {
+    filter: invert(100%)  saturate(748%) ;
+    transition-duration: 0.5s ;
+   }
+
+
+    #pie p{
+        text-align: center;
+        margin: 5px 0;
+        font-family: 'Quicksand';
+        -webkit-text-stroke: 1px #ffffff;
+        text-shadow: 3px 3px 5px hsla(0, 0%, 0%, 0.800);
+        color: white;
+        font-size: 24px;
+        margin-right: 150px;
+    }
+
+   
+    /*CARROUSEL */
+
+    .contenedor{
+        width: 700px;
+        position: relative;
+        height: 600px;
+    
+    }
+
+    .contenedorUno{
+        width: 700px;
+        position: relative;
+        height: 600px;
+     
+    }
+
+    .botones{
+        font-size: 30px;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.7);
+        text-align: center;
+        font-weight: bold;
+        position: absolute;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+    .botones:hover{
+        cursor: pointer;
+        transform: scale(1.2, 1.2);
+    }
+
+    .atras {
+        left: 2%;
+        top: calc(50% - 70px);
+    }
+    .adelante {
+        right: 2%;
+        top: calc(50% - 70px);
+    }
+
+
+    /*Slider automático*/
+
+    .slider-box {
+        width: 700px;
+        height: 500px;
+        overflow: hidden;
+       
+    }
+
+    .slider-box ul{
+        display: flex;
+        padding: 0;
+        margin: 0;
+        width: 600%; /*Porque son 6 imagenes*/
+        animation: slide 25s infinite alternate ease-in-out;
+        
+    }
+    .slider-box li {
+        width: calc(100% / 6);
+        list-style: none;
+        flex-shrink: 0;
+    }
+
+   .slider-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+   }
+
+   @keyframes slide {
+    0%     { margin-left: 0%; }
+    13.33% { margin-left: 0%; }
+
+    16.66% { margin-left: -100%; }
+    29.99% { margin-left: -100%; }
+
+    33.33% { margin-left: -200%; }
+    46.66% { margin-left: -200%; }
+
+    50%    { margin-left: -300%; }
+    63.33% { margin-left: -300%; }
+
+    66.66% { margin-left: -400%; }
+    79.99% { margin-left: -400%; }
+
+    83.33% { margin-left: -500%; } 
+    96.66% { margin-left: -500%; }
+
+    100%   { margin-left: -500%; } /*Para que no se reinicie y vuelva para atrás*/
+}
+
+    
+    

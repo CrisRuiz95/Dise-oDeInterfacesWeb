@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&family=Pinyon+Script&family=Quicksand:wght@300..700&family=Staatliches&display=swap" rel="stylesheet">
+    <title>El Rincón Del Duero</title>
+
+        <script src="./JS/Script.js"> </script>
+
+        <!-- precarga de imagenes sin flashes-->
+         <link rel="preload" as="image" href="imagenes/HEROIMAGEREDIMENSIONADA.png">
+         <link rel="preload" as="image" href="imagenes/CarrouselHero/bodega2.png">
+         <link rel="preload" as="image" href="imagenes/CarrouselHero/bodega3.jpg">
+         <link rel="preload" as="image" href="imagenes/CarrouselHero/bodega4.jpg">
+
+
+         <!-- Librerias: aos animation-->
+         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    
+    <div id="modalBienvenida">
+        <div id="modalBoxB">
+            <h1><p>Bienvenido a: </p> <p>El Rincón del Duero</p></h1>
+            <button onclick="cerrarMBB()">Empieza</button>
+        </div>
+    </div>
+
+    <header id="encabezado">
+
+     <div id="heroContainer"> <!-- Creo un div para poder eliminar la barra de reload-->
+        <div class="fondosHero" id="fondoHero1"></div>
+        <div class="fondosHero" id="fondoHero2"></div>
+        <div class="fondosHero" id="fondoHero3"></div>
+        <div class="fondosHero" id="fondoHero4"></div>
+    </div>
+
+        <img id="logo" src="./imagenes/logo.png">
+
+
+        <!--Aqui empieza el menu horizontal-->
+        <nav id="navbar">
+            <ul id="menu">
+                <li class="elementoMenu"> <a href="#encabezado"> Inicio </a></li>
+                <li class="elementoMenu"> <a href="#bodega"> Bodega </a>
+                
+                    <ul id="submenuDos">
+                        <li class="opciones"><a href="#bodega"  onclick="marcarPestana('QuienesSomos', 'tabQS')">Quienes somos</a></li>
+                        <li class="opciones"><a href="#bodega" onclick="marcarPestana('DondeEstamos', 'tabDE')">Donde estamos</a></li>
+                        <li class="opciones"><a href="#bodega" onclick="marcarPestana('EventosCelebrados', 'tabEC')">Eventos celebrados</a></li>
+                    </ul>
+                
+                </li>
+                <li class="elementoMenu"> <a href="#vinos"> Vinos </a></li>
+                <li class="elementoMenu"> <a href="#catadevino"> Eventos </a></li>
+                <li class="elementoMenu"> <a href="#contacto"> Contacto </a></li>
+            </ul>
+        </nav>
+           
+
+        <h1 id="TituloEncabezado">El Rincón Del Duero</h1>
+        <h2 id="SubtituloEncabezado"> sabor que nace del corazón de la tierra </h2>
+
+
+    </header>
+
+    <section id="bodega">
+        <h2 class="titulos" data-aos="fade-up">Bodega</h2>
+   
+     <!-- submenú -->
+      <div class="contenedorEtiquetaPestañas" >
+     <p id="tabQS" class="opcion pestanaActiva" onclick="marcarPestana('QuienesSomos', 'tabQS')">Quienes somos</p>
+     <p id="tabDE" class="opcion" onclick="marcarPestana('DondeEstamos', 'tabDE')">Donde estamos</p>
+     <p id="tabEC" class="opcion" onclick="marcarPestana('EventosCelebrados', 'tabEC')">Eventos celebrados</p>
+    </div>
+
+    <!-- Secciones-->
+    <div class="contenedorPestana" id="QuienesSomos" > 
+        <div class="colBodega"> 
+            <div id="galeria">
+
+                <div class="contenedorUno">
+                    <div class="atras botones">
+                        &#60
+                    </div>
+
+                <div class="adelante botones">
+                    &#62
+                </div>
+                <img src="./imagenes/quienes Somos/bodega.jpg" alt="bodega">
+            </div>
+
+                
+
+            </div> 
+        </div>
+        <div class="colBodega" >
+            <p data-aos="fade-left" data-aos-delay="4000" data-aos-duration="5000">Nuestra bodega está fundada en este mismo año, 2025, en Toro, Zamora, con el fin de llevar los mejores placeres y sensaciones al paladar de nuestros clientes. </p>
+            <p data-aos="fade-left" data-aos-delay="4000" data-aos-duration="5000">Esta bodega es una inversión familiar del linaje Ruiz, surgido para diseñar un negocio especial que pueda aprovechar al máximo las buenas tierras y recursos de la zona en las que está ubicada esta vinatería.</p>
+        </div>
+    </div>
+
+    <div class="contenedorPestana" id="DondeEstamos"> 
+        <div class="colBodega"> 
+            <div id="galeria">
+                <div class="contenedor">
+                    <div class="atras botones">
+                        &#60
+                    </div>
+
+                <div class="adelante botones">
+                    &#62
+                </div>
+                <img src="./imagenes/DondeEstamos/MiradorDuero.jpg" alt="Mirador Duero" id="imagen">
+            </div>
+        
+        </div>
+        </div>
+        <div class="colBodega" >
+            <p data-aos="fade-left" data-aos-delay="4000" data-aos-duration="5000">Toro es una localidad histórica situada en la comunidad autónoma de Castilla y León, en el noroeste de España. Pertenece a la provincia de Zamora y está ubicada en una colina sobre el río Duero</p>
+            <p data-aos="fade-left" data-aos-delay="4000" data-aos-duration="5000">Toro tiene un importante legado histórico. Fue un lugar clave durante la Edad Media y desempeñó un papel destacado en la Guerra de Sucesión Castellana. La ciudad llegó a ser sede de cortes y residencia real.</p>
+            <p data-aos="fade-left" data-aos-delay="4000" data-aos-duration="5000">Toro es famosa por sus vinos con Denominación de Origen (D.O. Toro), especialmente los tintos potentes elaborados con la uva Tinta de Toro, una variedad autóctona.</p>
+        </div>
+    </div>
+
+    <div class="contenedorPestana" id="EventosCelebrados"> 
+        <div class="colBodega"> 
+            <div id="galeria">
+                <div class="slider-box">
+
+                    <ul>
+                        <li>
+                            <img class="imgGrande" src="./imagenes/EventosCelebrados/intro.jpg"" alt="Introducción cata">
+                        </li>
+
+                        <li>
+                            <img class="imgGrande" src="./imagenes/EventosCelebrados/cata.jpg" alt="Cata de vino">
+                        </li>
+
+                        <li>
+                            <img  class="imgGrande" src="./imagenes/EventosCelebrados/Barriles.jpg" alt="Barriles de vino para la cata de vino">
+                        </li>
+
+                        <li>
+                            <img class="imgGrande" src="./imagenes/EventosCelebrados/Toro-Vinos.jpg" alt="Diferentes vinos">
+                        </li>
+
+                        <li>
+                            <img class="imgGrande" src="./imagenes/EventosCelebrados/cata2.jpeg" alt="Disfrutando de la cata">
+                        </li>
+
+                        <li>
+                            <img class="imgGrande"src="./imagenes/EventosCelebrados/kelsey-knight-udj2tD3WKsY-unsplash.jpg" alt="chocando las copas">
+                        </li>
+                    </ul>
+
+                </div>
+         </div>
+        </div>
+
+        <div class="colBodega">
+            <p>Toro es sinónimo de buen vino, y sus ferias vinícolas son una verdadera celebración de esta identidad. Son eventos donde se reúnen bodegas, vecinos, visitantes y amantes del vino en general, para disfrutar, aprender y saborear.</p>
+                <p class="negrita">Feria del Vino D.O. Toro</p>
+                <p>Es la más conocida y representativa. Se celebra habitualmente en el puente de mayo (finales de abril o comienzos de mayo), coincidiendo con las festividades locales.</p>
+        </div>
+    </div>
+
+    <div id="modalLightBox">
+        <div id="imageToShow">
+            
+        </div>
+            <button class="lbButtons lbbRight" onclick="nextImgGrande()">
+                <img class="flecha" src="./imagenes/triangle-right-svgrepo-com.svg" alt="flecha derecha">
+            </button>
+
+            <button class="lbButtons lbbLeft" onclick="prevImgGrande()">
+                <img class="flecha" src="./imagenes/triangle-left-svgrepo-com.svg" alt="flecha izquierda">
+            </button>
+    </div>
+
+    </section>
+
+
+    <section id="vinos">
+            <h2 class="titulos desplazamiento" data-aos="fade-up">Vinos</h2>
+            <h3 class="subtituloVinos">Con un toque de cariño y mucho arte, les mostramos nuestros productos más selectos:</h3>
+            
+            <div id="vinosimg">
+                    <div class="imgBotella" data-aos="zoom-out" data-aos-duration="5000" data-aos-delay="300">
+                        <img src="./imagenes/vino11.png" alt="Platón">
+                        <p class="nombreBotella">Platón</p>
+                    </div>
+                
+                    <div class="imgBotella" data-aos="zoom-out" data-aos-duration="5000" data-aos-delay="300">
+                        <img src="./imagenes/vino22.png" alt="Abracadabra" >
+                        <p class="nombreBotella">Abracadabra</p>
+                    </div>
+            
+                    <div class="imgBotella" data-aos="zoom-out" data-aos-duration="5000" data-aos-delay="300">
+                        <img src="./imagenes/vino33.png" alt="Madre Mia" >
+                        <p class="nombreBotella">Madre Mia</p>
+                    </div>
+            
+                    <div class="imgBotella" data-aos="zoom-out" data-aos-duration="5000" data-aos-delay="300">
+                        <img src="./imagenes/vino44.png" alt="24 mozas" >
+                        <p class="nombreBotella">24 Mozas</p>
+                    </div>
+        
+                    <div class="imgBotella" data-aos="zoom-out" data-aos-duration="5000" data-aos-delay="300">
+                        <p class="nombreBotella abajo">Loquillo</p>
+                        <img src="./imagenes/vino55.png" alt="Loquillo">
+                       
+                    </div>
+            
+                    <div class="imgBotella" data-aos="zoom-out" data-aos-duration="5000" data-aos-delay="300">
+                        <p class="nombreBotella abajo">Encomienda</p>
+                        <img src="./imagenes/vino66.png" alt="Encomienda" >
+                    </div>
+            
+                    <div class="imgBotella" data-aos="zoom-out" data-aos-duration="5000" data-aos-delay="300">
+                        <p class="nombreBotella abajo"> El Principito</p>
+                        <img src="./imagenes/vino77.png" alt="El Principito">
+                    </div>
+            </div>
+           
+            
+    </section>
+    <section id="catadevino">
+
+        <main id="video-container">
+                <video controls src="./video/Evento.mp4">
+                </video>  
+           
+           <div id="contenedorCata">
+
+            <div class="titulosCata">
+                <h2 class="titulos tituloCata desplazamiento" data-aos="fade-up">Cata De Vino</h2>
+                <h3 class="subtituloCata">Regístrate en este especial evento celebrado el 17 de octubre</h3>
+            </div>
+            <form action="#" id="FormularioCata">
+                <h3 class="EmailTitulo">Email<input class="EmailCata" type="email" name="Email" placeholder="E-mail"> </h3>  
+                <div>
+                <input type="checkbox" id="terminosCata" name="terminos" required>
+                <label class="textoterminosCata" for="terminos">He leido y acepto  <a href="#" target="_blank">la Politica de privacidad</a></label>
+                </div>
+                <input type="checkbox" id="terminosCata2" name="Recibirinfo">
+                <label class="RecibirinfoTexto" for="terminosCata2">Acepto recibir información de próximos eventos</label>
+            </form> 
+             </div>  
+             
+             
+     </main>
+        </section>
+    <section id="contacto">
+        <h2 class="titulos desplazamiento tituloCata" data-aos="fade-up">Contacto</h2>
+
+        <div id="contenedorContacto">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1493.5920498001644!2d-5.393188840053163!3d41.5219526717511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3894dac1ff5c17%3A0xd97cd46ee46989b2!2sBodega%20Velasco!5e0!3m2!1ses!2ses!4v1740158170380!5m2!1ses!2ses" width="698" height="726" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+            <form action="" id="Formulario">
+                <input type="text" id="Nombre" name="Nombre" placeholder="Nombre" required>
+                <input type="text" id="Apellidos" name="Apellidos" placeholder="Apellidos" required>
+                <input type="email" id="Email" name="Email" placeholder="E-mail" required>
+                <input type="text" id="Telefono" name="Telefono" placeholder="Teléfono" required>
+                <textarea id="comentario" name="comentario" rows="8" cols="50" placeholder="Escribe aquí tu comentario" required></textarea>
+                
+
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label class="textoterminos" for="terminos">He leido y acepto  <a href="#" target="_blank">la Politica de privacidad</a></label>
+
+                <button id="botonEnviar" type="button" onclick="modalReserva()">Enviar</button>
+            </form>
+    </div>
+
+    <!--Aquí empieza el modal reserva -->
+    <div id="modalReserva">
+        <div id="modalBoxR">
+            <h1>Mensaje de confirmación del comentario</h1>
+            <p id="mensajeReserva">Hola, este es el mensaje de confirmación</p>
+            <button onclick="cerrarMBR()">Entendido</button>
+        </div> 
+    </div>
+        
+    </section>
+
+    <footer id="pie">
+    
+        <div id="RedesSociales">
+            <div class="div-icono"> 
+        <a href="#"><img src="./imagenes/facebook-brands.svg" alt="facebook"></a>
+            </div>
+            <div class="div-icono">
+       <a href="#"> <img src="./imagenes/square-instagram-brands.svg" alt="Instagram"></a>
+            </div>
+            <div class="div-icono">
+        <a href="#"><img src="./imagenes/square-x-twitter-brands.svg" alt="Twitter"></a>
+             </div>
+             <div class="div-icono">
+        <a href="#"><img src="./imagenes/square-whatsapp-brands.svg" alt="Whatsapp"></a>
+             </div>
+        </div>
+    
+
+        <p>El rincón del Duero©2025 Todos los derechos reservados</p>
+
+    </footer>
+
+    <script>
+
+       modalBienvenida();
+       setInterval(slidesShowAnim, 8000);
+       readyLightBox();
+      
+    </script>
+
+<script>
+    AOS.init()
+</script>
+    
+    </body>
+
+    
+</html>
